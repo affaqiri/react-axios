@@ -5,8 +5,12 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import axios from 'axios'
 
-// Global Axios interceptors to intercept requests/reponses sent/received to/from server
+// Default Axios global configuration
+axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com' 
+axios.defaults.headers.common['Authorization'] = 'AUTH_TOKEN'
+axios.defaults.headers.post['Content-Type'] = 'application/json'
 
+// Global Axios interceptors to intercept requests/reponses sent/received to/from server
 axios.interceptors.request.use(request => {
   // console.log(request)
   return request;
